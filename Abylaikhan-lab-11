@@ -1,0 +1,50 @@
+class Dish:
+    def __init__(self, name, price):   # ДҰРЫС
+        self.name = name
+        self.price = price
+
+    def info(self):
+        print(f"Dish: {self.name}, Price: {self.price}₸")
+
+
+class MainDish(Dish):
+    def __init__(self, name, price, calories):   # ДҰРЫС
+        super().__init__(name, price)
+        self.calories = calories
+
+    def info(self):
+        print(f"Dish: {self.name}, Price: {self.price}₸, Calories: {self.calories} kcal")
+
+
+food = MainDish("Beshbarmak", 2500, 850)
+food.info()
+class Beverage:
+    def describe(self):
+        print("This is a beverage.")
+
+class Tea(Beverage):
+    def describe(self):
+        print("Tea: warm and refreshing.")
+
+b = Beverage()
+t = Tea()
+
+b.describe()
+t.describe()
+class MenuItem:
+    def get_price(self):
+        pass
+
+class Soup(MenuItem):
+    def get_price(self):
+        return 1200
+
+class Dessert(MenuItem):
+    def get_price(self):
+        return 1500
+
+
+items = [Soup(), Dessert()]
+
+for item in items:
+    print("Price:", item.get_price(), "T")
